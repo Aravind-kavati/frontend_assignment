@@ -1,6 +1,6 @@
 import React from "react";
 
-// Only blue and yellow for non-conflicts
+// Alternate colors for styling
 const colors = [
   "bg-blue-200 text-blue-800",
   "bg-yellow-200 text-yellow-800"
@@ -9,7 +9,7 @@ const colors = [
 const EventBadge = ({ event }) => {
   const colorClass = event.conflict
     ? "bg-red-200 text-red-800 border border-red-500"
-    : colors[event.id % colors.length]; // Alternate blue/yellow
+    : colors[event.id % colors.length];
 
   return (
     <div className={`rounded px-2 py-1 text-xs truncate ${colorClass}`}>

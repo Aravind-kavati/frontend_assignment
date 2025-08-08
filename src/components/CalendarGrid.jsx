@@ -1,34 +1,34 @@
 import React from "react";
 import {
-  startOfMonth, endOfMonth, startOfWeek, endOfWeek,
-  addDays, isSameMonth, isSameDay, format
+  startOfMonth,
+  endOfMonth,
+  startOfWeek,
+  endOfWeek,
+  addDays,
+  isSameMonth,
+  isSameDay,
+  format
 } from "date-fns";
 import EventBadge from "./EventBadge";
 
-
 const getEventsForDay = (events, day) =>
-  events.filter(event => isSameDay(event.date, day));
+  events.filter((event) => isSameDay(new Date(event.date), day));
 
-// Checkong for event conflicts
-const checkConflicts = events => {
+const checkConflicts = (events) => {
   const sorted = [...events].sort((a, b) => a.time.localeCompare(b.time));
-  let result = [];
-  for (let i = 0; i < sorted.length; i++) {
-    let conflict = false;
-    for (let j = 0; j < sorted.length; j++) {
-      if (i === j) continue;
-      const aStart = parseInt(sorted[i].time.replace(":", ""), 10);
-      const aEnd = aStart + (sorted[i].duration / 60) * 100;
-      const bStart = parseInt(sorted[j].time.replace(":", ""), 10);
-      const bEnd = bStart + (sorted[j].duration / 60) * 100;
-      if (!(aEnd <= bStart || aStart >= bEnd)) {
-        conflict = true;
-        break;
-      }
-    }
-    result.push({ ...sorted[i], conflict });
-  }
-  return result;
+  return sorted.map((event, i) => {
+    const aStart = parseInt(event.time.replace(":", ""), 10);
+    const aEnd = aStart + (event.duration / 60) * 100;
+
+    const conflict = sorted.some((other, j) => {
+      if (i === j) return false;
+      const bStart = parseInt(other.time.replace(":", ""), 10);
+      const bEnd = bStart + (other.duration / 60) * 100;
+      return !(aEnd <= bStart || aStart >= bEnd);
+    });
+
+    return { ...event, conflict };
+  });
 };
 
 const CalendarGrid = ({ currentMonth, events }) => {
@@ -51,14 +51,14 @@ const CalendarGrid = ({ currentMonth, events }) => {
       days.push(
         <div
           key={day}
-          className={`border h-24 p-1 align-top relative overflow-auto
+          className={`border h-24 p-1 align-top overflow-auto
             ${!isSameMonth(day, monthStart) ? "bg-gray-100 text-gray-400" : ""}
             ${isSameDay(day, today) ? "bg-blue-100 border-blue-400" : ""}
           `}
         >
           <div className="text-xs font-semibold">{formattedDate}</div>
           <div className="space-y-1 mt-1">
-            {eventsWithConflict.map(event => (
+            {eventsWithConflict.map((event) => (
               <EventBadge key={event.id} event={event} />
             ))}
           </div>
@@ -66,6 +66,7 @@ const CalendarGrid = ({ currentMonth, events }) => {
       );
       day = addDays(day, 1);
     }
+
     rows.push(
       <div className="grid grid-cols-7" key={day}>
         {days}
@@ -77,7 +78,7 @@ const CalendarGrid = ({ currentMonth, events }) => {
   return (
     <div>
       <div className="grid grid-cols-7 mb-2 text-center text-gray-700 font-bold">
-        {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map(d => (
+        {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((d) => (
           <div key={d}>{d}</div>
         ))}
       </div>

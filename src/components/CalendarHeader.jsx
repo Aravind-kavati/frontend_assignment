@@ -1,6 +1,4 @@
-
 import React from "react";
-import { format } from "date-fns";
 
 const MONTHS = [
   "January", "February", "March", "April", "May", "June",
@@ -31,7 +29,7 @@ const CalendarHeader = ({
       <div className="flex items-center space-x-2">
         <select
           value={month}
-          onChange={e => onMonthChange(Number(e.target.value))}
+          onChange={(e) => onMonthChange(Number(e.target.value))}
           className="border rounded px-2 py-1"
         >
           {MONTHS.map((m, idx) => (
@@ -40,10 +38,10 @@ const CalendarHeader = ({
         </select>
         <select
           value={year}
-          onChange={e => onYearChange(Number(e.target.value))}
+          onChange={(e) => onYearChange(Number(e.target.value))}
           className="border rounded px-2 py-1"
         >
-          {getYears(minYear, maxYear).map(y => (
+          {getYears(minYear, maxYear).map((y) => (
             <option value={y} key={y}>{y}</option>
           ))}
         </select>
@@ -53,4 +51,4 @@ const CalendarHeader = ({
   );
 };
 
-export default CalendarHeader;
+export default CalendarHeader;

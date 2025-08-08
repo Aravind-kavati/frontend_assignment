@@ -2,57 +2,99 @@
   {
     "id": 1,
     "title": "Team Meeting",
-    "date": "2025-05-16",
+    "date": "2025-09-16",
     "time": "10:00",
     "duration": 60
   },
   {
     "id": 2,
     "title": "Design Review",
-    "date": "2025-05-16",
+    "date": "2025-09-16",
     "time": "10:30",
     "duration": 30
   },
   {
     "id": 3,
     "title": "Lunch with Alex",
-    "date": "2025-05-18",
+    "date": "2025-09-18",
     "time": "12:00",
     "duration": 60
   },
   {
     "id": 4,
     "title": "Quarterly Review",
-    "date": "2025-05-24",
+    "date": "2025-09-24",
     "time": "15:00",
     "duration": 90
   },
   {
     "id": 5,
     "title": "Yoga Class",
-    "date": "2025-06-02",
+    "date": "2025-08-02",
     "time": "08:00",
     "duration": 60
   },
   {
     "id": 6,
     "title": "Marketing Presentation",
-    "date": "2025-06-11",
+    "date": "2025-08-11",
     "time": "11:00",
     "duration": 45
   },
   {
     "id": 7,
     "title": "Coffee with Priya",
-    "date": "2025-06-11",
+    "date": "2025-08-11",
     "time": "11:30",
     "duration": 30
   },
   {
     "id": 8,
     "title": "Parent-Teacher Meeting",
-    "date": "2025-06-17",
+    "date": "2025-08-17",
     "time": "09:30",
     "duration": 30
+  },
+  {
+    "id": 9,
+    "title": "Medical Checkup",
+    "date": "2025-10-17",
+    "time": "09:30",
+    "duration": 30
+  },
+  {
+    "id": 10,
+    "title": "Friend's Wedding",
+    "date": "2025-11-10",
+    "time": "17:00",
+    "duration": 180
+  },
+  {
+    "id": 11,
+    "title": "Holiday Retreat",
+    "date": "2025-12-22",
+    "time": "09:00",
+    "duration": 480
+  },
+  {
+    "id": 12,
+    "title": "Christmas Celebration",
+    "date": "2025-12-25",
+    "time": "09:00",
+    "duration": 480
+  },
+  {
+    "id": 13,
+    "title": "Year-End Wrap-up",
+    "date": "2025-12-29",
+    "time": "09:00",
+    "duration": 480
+  },
+  {
+    "id": 14,
+    "title": "Team Reflection Day",
+    "date": "2025-12-30",
+    "time": "09:00",
+    "duration": 480
   }
 ]
